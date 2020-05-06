@@ -167,36 +167,28 @@ function validateItemForm() {
 		return "Insert City.";
 	}
 
-	// EMAILADDRESS
-//	if ($("#emailAddr").val().trim() == "") {
-//		return "Insert Email Address.";
-//	}
-	
-		
-		// Email
-		if ($("#emailAddr").val().trim() == "") {
-			return "Insert email Address.";
-		}
-		
-		var statusemail = validateEmail();	
-		if( statusemail != true ){
-			return "Invalid Email Address"
-		}
-		
-	
+	// Email
+	if ($("#emailAddr").val().trim() == "") {
+		return "Insert email Address.";
+	}
+
+	var statusemail = validateEmail();
+	if (statusemail != true) {
+		return "Invalid Email Address"
+	}
 
 	function validateEmail() {
-	    var emailID = document.formHospital.emailAddr.value;
-	    atpos = emailID.indexOf("@");
-	    dotpos = emailID.lastIndexOf(".");
-	    
-	    if (atpos < 1 || ( dotpos - atpos < 2 )) {
-	       //alert("Please enter correct email ID")
-	       document.formHospital.emailAddr.focus() ;
-	       return false;
-	    }
-	    return( true );
-	 }
+		var emailID = document.formHospital.emailAddr.value;
+		atpos = emailID.indexOf("@");
+		dotpos = emailID.lastIndexOf(".");
+
+		if (atpos < 1 || (dotpos - atpos < 2)) {
+			// alert("Please enter correct email ID")
+			document.formHospital.emailAddr.focus();
+			return false;
+		}
+		return (true);
+	}
 
 	// DESCRIPTION
 	if ($("#description").val().trim() == "") {
@@ -309,7 +301,7 @@ function readHospital(data) {
 								+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-h_id='"
 								+ obj["id"] + "'>" + "</td></tr>";
 					});
-		$("#hospitalTable tbody").append(content);
+	$("#hospitalTable tbody").append(content);
 }
 
 function refresh() {
