@@ -168,9 +168,35 @@ function validateItemForm() {
 	}
 
 	// EMAILADDRESS
-	if ($("#emailAddr").val().trim() == "") {
-		return "Insert Email Address.";
-	}
+//	if ($("#emailAddr").val().trim() == "") {
+//		return "Insert Email Address.";
+//	}
+	
+		
+		// Email
+		if ($("#emailAddr").val().trim() == "") {
+			return "Insert email Address.";
+		}
+		
+		var statusemail = validateEmail();	
+		if( statusemail != true ){
+			return "Invalid Email Address"
+		}
+		
+	
+
+	function validateEmail() {
+	    var emailID = document.formHospital.emailAddr.value;
+	    atpos = emailID.indexOf("@");
+	    dotpos = emailID.lastIndexOf(".");
+	    
+	    if (atpos < 1 || ( dotpos - atpos < 2 )) {
+	       //alert("Please enter correct email ID")
+	       document.formHospital.emailAddr.focus() ;
+	       return false;
+	    }
+	    return( true );
+	 }
 
 	// DESCRIPTION
 	if ($("#description").val().trim() == "") {
